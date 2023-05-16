@@ -53,7 +53,11 @@ const Colors = () => {
   return (
     <div className="flex items-stretch flex-col h-full w-full justify-stretch">
       {colors.map((color) => (
-        <div className="h-full" style={{ backgroundColor: color }}></div>
+        <div
+          key={color}
+          className="h-full"
+          style={{ backgroundColor: color }}
+        ></div>
       ))}
     </div>
   );
