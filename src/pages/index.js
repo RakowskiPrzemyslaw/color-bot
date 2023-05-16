@@ -19,7 +19,7 @@ export default function Home() {
       console.log(detailsWidget);
 
       detailsWidget.on("customer_profile", async (profile) => {
-        const token = localStorage.getItem("font");
+        const token = localStorage.getItem("token");
 
         await Promise.all([agentAPI.connect(), customerAPI.connect()]);
         await Promise.all([
