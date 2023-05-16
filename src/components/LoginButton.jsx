@@ -1,22 +1,17 @@
 import { accountsSdk } from "@/sdk/accounts";
 
+import { useAuth } from "@/hooks/useAuth";
+
 const LoginButton = () => {
+  const { setAuthData } = useAuth();
+
   const handleLogin = () => {
     console.log("handleLogin");
     accountsSdk
       .popup()
       .authorize()
-      .then((authorizeData) => {
-        const transaction = accountsSdk.verify(authorizeData);
-
-        localStorage.setItem("token", authorizeData.access_token);
-
-        console.log("authorizeData", authorizeData);
-        console.log("transaction", transaction);
-
-        if (transaction != null) {
-          console.log(transaction);
-        }
+      .then(async (authorizeData) => {
+        setAuthData(authorizeData);
       })
       .catch((err) => {
         console.log(err);
