@@ -6,9 +6,13 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "dev:https": "npx local-ssl-proxy --source 3001 --target 3000"
   },
   "dependencies": {
+    "@livechat/accounts-sdk": "^2.0.6",
+    "@livechat/agent-app-sdk": "^1.6.4",
+    "@livechat/lc-sdk-js": "3.0.3",
     "autoprefixer": "10.4.14",
     "eslint": "8.40.0",
     "eslint-config-next": "13.4.2",
